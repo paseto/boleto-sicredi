@@ -10,8 +10,6 @@ $ composer require paseto/boletos
 
 ### Usage
 
-Install the dependencies and devDependencies and start the server.
-
 ```sh
 require './vendor/autoload.php';
 
