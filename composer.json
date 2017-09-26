@@ -1,6 +1,6 @@
 {
-  "name": "paseto/boletos",
-  "description": "Gerador de Boletos",
+  "name": "paseto/boleto-sicredi",
+  "description": "Gerador de Boleto Sicredi",
   "licence": "MIT",
   "type": "library",
   "keywords": ["boleto", "pdf", "sicredi"],
