@@ -5,7 +5,7 @@ Gera boletos Sicredi em PDF padrão CNAB 400.
 ### Setup
 
 ```sh
-$ composer require paseto/boletos
+$ composer require paseto/boleto-sicredi
 ```
 
 ### Usage
