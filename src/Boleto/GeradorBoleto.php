@@ -278,8 +278,8 @@ class GeradorBoleto
   public function fbarcode($valor, FPDF $PDF)
   {
     $fino = UnidadeMedida::px2milimetros(1); // valores em px
-    $largo = UnidadeMedida::px2milimetros(2.3); // valor em px
-    $altura = UnidadeMedida::px2milimetros(40); // valor em px
+    $largo = UnidadeMedida::px2milimetros(3); // valor em px
+    $altura = UnidadeMedida::px2milimetros(45); // valor em px
 
     $barcodes[0] = '00110';
     $barcodes[1] = '10001';
