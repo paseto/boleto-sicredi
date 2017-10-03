@@ -18,7 +18,7 @@ class Sicredi extends BancoAbstract
     $this->setNome('Sicredi');
     $this->setAceite('N');
     $this->setLogomarca('logosicredi.jpg');
-    $this->setLocalPagamento('Pagável em qualquer Banco até o vencimento');
+    $this->setLocalPagamento('PAGÁVEL PREFERENCIALMENTE NAS COOPERATIVAS DE CRÉDITO DO Sicredi');    
   }
 
   /**
@@ -152,5 +152,12 @@ class Sicredi extends BancoAbstract
         $boleto->getValorBoletoSemVirgula() .
         $campoLivre
     ;
+  }  
+  
+  public function formataNossoNumero(Boleto $boleto)
+  {
+    $oldstr = $boleto->getNossoNumeroSemDigitoVerificador() . '-' . $boleto->getDigitoVerificadorNossoNumero();
+    $pos = 2;    
+    return substr($oldstr, 0, $pos) . "/" . substr($oldstr, $pos);
   }
 }

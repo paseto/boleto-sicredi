@@ -65,11 +65,11 @@ class GeradorBoleto
     $PDF->SetFont('Arial', '', 7);
     $PDF->Cell(85, 5, utf8_decode($boleto->getSacado()->getNome()), 'BLR', 0, 'L');
     $PDF->Cell(
-        30, 5, $boleto->getCedente()->getAgenciaComDv() . ' / ' . $boleto->getCedente()->getContaComDv(), 'BR', 0, 'L'
+        30, 5, $boleto->getCedente()->getAgencia() . '.' . $boleto->getBanco()->getPosto() . '.' . $boleto->getCedente()->getCodigoCedente(), 'BR', 0, 'L'
     );
     $PDF->Cell(15, 5, $boleto->getBanco()->getEspecie(), 'BR', 0, 'L');
     $PDF->Cell(20, 5, '001', 'BR', 0, 'L');
-    $PDF->Cell(40, 5, $boleto->getNossoNumeroSemDigitoVerificador() . '-' . $boleto->getDigitoVerificadorNossoNumero(), 'B', 1, 'R');
+    $PDF->Cell(40, 5, $boleto->getBanco()->getNossoNumeroFormatado(), 'B', 1, 'R');
 
     $PDF->SetFont('Arial', '', 6);
     $PDF->Cell(60, 3, utf8_decode('Número do Documento'), 'LR', 0, 'L');
@@ -159,7 +159,7 @@ class GeradorBoleto
     $PDF->SetFont('Arial', '', 7);
     $PDF->Cell(130, 5, utf8_decode($boleto->getCedente()->getNome()), 'BLR', 0, 'L');
     $PDF->Cell(
-        60, 5, $boleto->getCedente()->getAgenciaComDv() . ' / ' . $boleto->getCedente()->getContaComDv(), 'B', 1, 'R'
+        60, 5, $boleto->getCedente()->getAgencia() . '.' . $boleto->getBanco()->getPosto() . '.' . $boleto->getCedente()->getCodigoCedente(), 'B', 1, 'R'
     );
 
     $PDF->SetFont('Arial', '', 6);
@@ -168,15 +168,15 @@ class GeradorBoleto
     $PDF->Cell(20, 3, utf8_decode('Espécie doc.'), 'R', 0, 'L');
     $PDF->Cell(20, 3, 'Aceite', 'R', 0, 'L');
     $PDF->Cell(22, 3, 'Data processamento', '', 0, 'L');
-    $PDF->Cell(60, 3, utf8_decode('Carteira / Nosso número'), 'L', 1, 'L');
+    $PDF->Cell(60, 3, utf8_decode('Nosso número'), 'L', 1, 'L');
 
     $PDF->SetFont('Arial', '', 7);
     $PDF->Cell(28, 5, $boleto->getDataDocumento()->format('d/m/Y'), 'BLR', 0, 'L');
     $PDF->Cell(40, 5, $boleto->getNumeroDocumento(), 'BR', 0, 'L');
     $PDF->Cell(20, 5, $boleto->getBanco()->getEspecieDocumento(), 'BR', 0, 'L');
     $PDF->Cell(20, 5, '', 'BR', 0, 'L');
-    $PDF->Cell(22, 5, $boleto->getDataProcessamento()->format('d/m/Y'), 'BR', 0, 'L');
-    $PDF->Cell(60, 5, $boleto->getCarteiraENossoNumeroComDigitoVerificador(), 'B', 1, 'R');
+    $PDF->Cell(22, 5, $boleto->getDataProcessamento()->format('d/m/Y'), 'BR', 0, 'L');    
+    $PDF->Cell(60, 5, $boleto->getBanco()->getNossoNumeroFormatado(), 'B', 1, 'R');
 
     $PDF->SetFont('Arial', '', 6);
     $PDF->Cell(28, 3, 'Uso do Banco', 'LR', 0, 'L');

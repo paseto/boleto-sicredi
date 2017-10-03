@@ -75,6 +75,11 @@ abstract class Banco
      */
     private $byte;
 
+    /**
+     * @var string
+     */
+    private $nossoNumeroFormatado;
+
     public function __construct()
     {
         $this->init();
@@ -317,7 +322,18 @@ abstract class Banco
     {
         $this->byte = $byte;
     }
+    
+    function getNossoNumeroFormatado()
+    {
+      return $this->nossoNumeroFormatado;
+    }
 
+    function setNossoNumeroFormatado($nossoNumeroFormatado)
+    {
+      $this->nossoNumeroFormatado = $nossoNumeroFormatado;
+    }
+
+    
     /**
      * @param Boleto $boleto
      *
@@ -358,5 +374,5 @@ abstract class Banco
      *
      * @return mixed
      */
-    abstract public function getLinha(Boleto $boleto);
+    abstract public function getLinha(Boleto $boleto);    
 }
