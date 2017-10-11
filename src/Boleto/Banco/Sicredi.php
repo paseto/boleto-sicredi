@@ -18,7 +18,7 @@ class Sicredi extends BancoAbstract
     $this->setNome('Sicredi');
     $this->setAceite('N');
     $this->setLogomarca('logosicredi.jpg');
-    $this->setLocalPagamento('PAGÁVEL PREFERENCIALMENTE NAS COOPERATIVAS DE CRÉDITO DO Sicredi');    
+    $this->setLocalPagamento('PAGÁVEL PREFERENCIALMENTE NAS COOPERATIVAS DE CRÉDITO DO Sicredi');
   }
 
   /**
@@ -99,7 +99,7 @@ class Sicredi extends BancoAbstract
    * @return int|string
    */
   public function digitoVerificadorNossonumero($numero)
-  {    
+  {
     $resto2 = Modulo::modulo11($numero, 9, 1);
     $digito = 11 - $resto2;
     if ($digito > 9) {
@@ -152,12 +152,12 @@ class Sicredi extends BancoAbstract
         $boleto->getValorBoletoSemVirgula() .
         $campoLivre
     ;
-  }  
-  
-  public function formataNossoNumero(Boleto $boleto)
+  }
+
+  public function setNossoNumeroFormatado(Boleto $boleto)
   {
-    $oldstr = $boleto->getNossoNumeroSemDigitoVerificador() . '-' . $boleto->getDigitoVerificadorNossoNumero();
-    $pos = 2;    
-    return substr($oldstr, 0, $pos) . "/" . substr($oldstr, $pos);
+    return $this->setNossoNumero(
+            date('y') . '/' . $this->getByte() . $boleto->getNossoNumero() . '-' . $boleto->getDigitoVerificadorNossoNumero()
+    );
   }
 }
