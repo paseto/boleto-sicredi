@@ -221,13 +221,11 @@ class Cedente
     
     function getCodigoCedente()
     {
-      return $this->codigoCedente;
+        return $this->codigoCedente;
     }
 
     function setCodigoCedente($codigoCedente)
     {
-      $this->codigoCedente = $codigoCedente;
+        $this->codigoCedente = $codigoCedente;
     }
-
-
 }

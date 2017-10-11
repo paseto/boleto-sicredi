@@ -325,12 +325,12 @@ abstract class Banco
     
     function getNossoNumero()
     {
-      return $this->nossoNumero;
+        return $this->nossoNumero;
     }
 
     function setNossoNumero($nossoNumero)
     {
-      $this->nossoNumero = $nossoNumero;
+        $this->nossoNumero = $nossoNumero;
     }
 
     
