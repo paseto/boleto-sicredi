@@ -323,12 +323,12 @@ abstract class Banco
         $this->byte = $byte;
     }
     
-    function getNossoNumero()
+    public function getNossoNumero()
     {
         return $this->nossoNumero;
     }
 
-    function setNossoNumero($nossoNumero)
+    public function setNossoNumero($nossoNumero)
     {
         $this->nossoNumero = $nossoNumero;
     }

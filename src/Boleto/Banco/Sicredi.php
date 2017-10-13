@@ -29,7 +29,8 @@ class Sicredi extends BancoAbstract
     public function getDigitoVerificadorNossoNumero(Boleto $boleto)
     {
         // |Agência | Posto | Cedente | Ano | Byte | Sequencial(Nosso número) |
-        $nnum = $boleto->getCedente()->getAgencia() . $this->getPosto() . $boleto->getCedente()->getCodigoCedente() . date('y') . $this->getByte() . $boleto->getNossoNumero();
+        $nnum = $boleto->getCedente()->getAgencia() . $this->getPosto() .
+            $boleto->getCedente()->getCodigoCedente() . date('y') . $this->getByte() . $boleto->getNossoNumero();
 
         //dv do nosso número
         return $this->digitoVerificadorNossonumero($nnum);
@@ -62,7 +63,8 @@ class Sicredi extends BancoAbstract
    */
     public function getCarteiraENossoNumeroComDigitoVerificador(Boleto $boleto)
     {
-        return date('y') . '/' . $this->getByte() . $boleto->getNossoNumero() . '-' . $this->getNossoNumeroComDigitoVerificador($boleto);
+        return date('y') . '/' . $this->getByte() . $boleto->getNossoNumero() . '-'
+            . $this->getNossoNumeroComDigitoVerificador($boleto);
     }
 
   /**
@@ -74,14 +76,16 @@ class Sicredi extends BancoAbstract
     {
         $cl = ($this->getCarteira() == 'C' ? '3' : '1') .
         '1' .
-        Numero::formataNumero($boleto->getNossoNumeroSemDigitoVerificador() . $boleto->getDigitoVerificadorNossoNumero(), 9, 0) .
+        Numero::formataNumero($boleto->getNossoNumeroSemDigitoVerificador()
+            . $boleto->getDigitoVerificadorNossoNumero(), 9, 0) .
         Numero::formataNumero($boleto->getCedente()->getAgencia(), 4, 0) .
         Numero::formataNumero($this->getPosto(), 2, 0) .
         Numero::formataNumero($boleto->getCedente()->getConta(), 5, 0) .
         '10';
         $campoLivre = $cl . $this->digitoVerificadorCampoLivre($cl);
 
-        $numero = $this->getCodigo() . $boleto->getNumeroMoeda() . $boleto->getFatorVencimento() . Numero::formataNumero($boleto->getValorBoleto(), 10, 0) . $campoLivre;
+        $numero = $this->getCodigo() . $boleto->getNumeroMoeda() . $boleto->getFatorVencimento()
+            . Numero::formataNumero($boleto->getValorBoleto(), 10, 0) . $campoLivre;
 
         $resto2 = Modulo::modulo11($numero, 9, 1);
         if ($resto2 == 0 || $resto2 == 1 || $resto2 == 10) {
@@ -137,7 +141,8 @@ class Sicredi extends BancoAbstract
     {
         $cv = ($this->getCarteira() == 'C' ? '3' : '1') .
         '1' .
-        Numero::formataNumero($boleto->getNossoNumeroSemDigitoVerificador() . $boleto->getDigitoVerificadorNossoNumero(), 9, 0) .
+        Numero::formataNumero($boleto->getNossoNumeroSemDigitoVerificador()
+            . $boleto->getDigitoVerificadorNossoNumero(), 9, 0) .
         Numero::formataNumero($boleto->getCedente()->getAgencia(), 4, 0) .
         Numero::formataNumero($this->getPosto(), 2, 0) .
         Numero::formataNumero($boleto->getCedente()->getConta(), 5, 0) .
@@ -157,7 +162,8 @@ class Sicredi extends BancoAbstract
     public function setNossoNumeroFormatado(Boleto $boleto)
     {
         return $this->setNossoNumero(
-            date('y') . '/' . $this->getByte() . $boleto->getNossoNumero() . '-' . $boleto->getDigitoVerificadorNossoNumero()
+            date('y') . '/' . $this->getByte() . $boleto->getNossoNumero() . '-'
+            . $boleto->getDigitoVerificadorNossoNumero()
         );
     }
 }

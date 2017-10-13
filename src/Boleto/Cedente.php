@@ -219,12 +219,12 @@ class Cedente
         return $conta.'-'.$dv;
     }
     
-    function getCodigoCedente()
+    public function getCodigoCedente()
     {
         return $this->codigoCedente;
     }
 
-    function setCodigoCedente($codigoCedente)
+    public function setCodigoCedente($codigoCedente)
     {
         $this->codigoCedente = $codigoCedente;
     }

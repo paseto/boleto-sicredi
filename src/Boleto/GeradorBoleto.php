@@ -27,9 +27,8 @@ class GeradorBoleto
         $PDF->Cell(
             190,
             4,
-            utf8_decode(
-                'Imprimir em impressora jato de tinta (ink jet) ou laser em qualidade normal. (Não use modo econômico).'
-            ),
+            utf8_decode('Imprimir em impressora jato de tinta (ink jet) ou laser em qualidade normal.'
+                .' (Não use modo econômico).'),
             '',
             1,
             'C'
@@ -50,7 +49,8 @@ class GeradorBoleto
         $PDF->Cell(
             190,
             2,
-            '--------------------------------------------------------------------------------------------------------------------------------------',
+            '---------------------------------------------------------------------------------------------------------'
+            .'-----------------------------',
             '',
             0,
             'L'
@@ -82,7 +82,8 @@ class GeradorBoleto
         $PDF->Cell(
             30,
             5,
-            $boleto->getCedente()->getAgencia() . '.' . $boleto->getBanco()->getPosto() . '.' . sprintf('%05d', $boleto->getCedente()->getConta()),
+            $boleto->getCedente()->getAgencia() . '.' . $boleto->getBanco()->getPosto() . '.'
+            . sprintf('%05d', $boleto->getCedente()->getConta()),
             'BR',
             0,
             'L'
@@ -162,7 +163,8 @@ class GeradorBoleto
         $PDF->Cell(
             190,
             2,
-            '--------------------------------------------------------------------------------------------------------------------------------------',
+            '---------------------------------------------------------------------------------------------------------'
+            .'-----------------------------',
             '',
             0,
             'L'
@@ -196,7 +198,8 @@ class GeradorBoleto
         $PDF->Cell(
             60,
             5,
-            $boleto->getCedente()->getAgencia() . '.' . $boleto->getBanco()->getPosto() . '.' . sprintf('%05d', $boleto->getCedente()->getConta()),
+            $boleto->getCedente()->getAgencia() . '.' . $boleto->getBanco()->getPosto() . '.'
+            . sprintf('%05d', $boleto->getCedente()->getConta()),
             'B',
             1,
             'R'
@@ -321,7 +324,8 @@ class GeradorBoleto
         $PDF->Cell(
             190,
             2,
-            '--------------------------------------------------------------------------------------------------------------------------------------',
+            '--------------------------------------------------------------------------------------------------------'
+            .'------------------------------',
             '',
             0,
             'L'
