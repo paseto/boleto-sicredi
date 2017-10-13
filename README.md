@@ -1,5 +1,7 @@
 # Gerador de Boletos Sicredi
 
+[![Build Status](https://travis-ci.org/paseto/boleto-sicredi.svg?branch=master)](https://travis-ci.org/paseto/boleto-sicredi)
+
 Gera boletos Sicredi em PDF padrão CNAB 400.
 
 ### Setup
