@@ -15,11 +15,11 @@ $ composer require paseto/boleto-sicredi
 ```sh
 require './vendor/autoload.php';
 
-use Boletos\Boleto\Boleto;
-use Boletos\Boleto\Cedente;
-use Boletos\Boleto\Sacado;
-use Boletos\Boleto\GeradorBoleto;
-use Boletos\Boleto\Banco\Sicredi;
+use Boleto\Boleto;
+use Boleto\Cedente;
+use Boleto\Sacado;
+use Boleto\GeradorBoleto;
+use Boleto\Banco\Sicredi;
 
 $Boleto = new Boleto();
 
@@ -64,6 +64,9 @@ $Sacado->setCidade("São Vicente");
 $Sacado->setUf("SP");
 $Sacado->setCep("11380-000");
 $Boleto->setSacado($Sacado);
+
+//Gera nosso número padrão sicredi
+$Sicredi->setNossoNumeroFormatado($Boleto);
 
 //Gera boleto em PDF
 $GeradorBoleto = new GeradorBoleto();
