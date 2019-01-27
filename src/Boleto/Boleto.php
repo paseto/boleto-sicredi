@@ -34,15 +34,15 @@ class Boleto
      */
     private $numeroDocumento;
     /**
-     * @var DateTime
+     * @var \DateTime
      */
     private $dataVencimento;
     /**
-     * @var DateTime
+     * @var \DateTime
      */
     private $dataDocumento;
     /**
-     * @var DateTime
+     * @var \DateTime
      */
     private $dataProcessamento;
     /**
