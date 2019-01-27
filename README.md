@@ -1,7 +1,8 @@
 # Gerador de Boletos Sicredi
 
 [![Build Status](https://travis-ci.org/paseto/boleto-sicredi.svg?branch=master)](https://travis-ci.org/paseto/boleto-sicredi)
-[![](https://img.shields.io/packagist/dt/doctrine/orm.svg)](https://packagist.org/packages/paseto/boleto-sicredi)
+[![Latest Stable Version](https://poser.pugx.org/paseto/boleto-sicredi/v/stable)](https://packagist.org/packages/paseto/boleto-sicredi)
+[![Total Downloads](https://poser.pugx.org/paseto/boleto-sicredi/downloads)](https://packagist.org/packages/paseto/boleto-sicredi)
 ![](https://img.shields.io/github/license/paseto/boleto-sicredi.svg)
 
 Gera boletos Sicredi em PDF padrão CNAB 400.
