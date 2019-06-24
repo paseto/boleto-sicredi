@@ -152,7 +152,7 @@ class Boleto
         $this->demonstrativos = $demonstrativos;
     }
 
-    public function addDemostrativo($demonstrativo)
+    public function addDemonstrativo($demonstrativo)
     {
         $this->demonstrativos[] = $demonstrativo;
     }
