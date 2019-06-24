@@ -40,7 +40,8 @@ $Boleto->setDataDocumento(DateTime::createFromFormat('d/m/Y', "22/05/2017"));
 $Boleto->setDataProcessamento(DateTime::createFromFormat('d/m/Y', "22/05/2017"));
 $Boleto->addInstrucao("- Sr. Caixa, não receber após o vencimento");
 $Boleto->addInstrucao("- Após o vencimento cobrar mora diária de 0,33%");
-$Boleto->addDemonstrativo("Serviços Diversos");
+$Boleto->addDemonstrativo("Orçamento realizado em 22/05/2017");
+$Boleto->addDemonstrativo("Execução de serviços diversos");
 $Boleto->setValorBoleto("90,00");
 $Boleto->setNossoNumero("01085");
 
