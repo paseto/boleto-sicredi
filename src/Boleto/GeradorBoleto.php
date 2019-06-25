@@ -147,13 +147,13 @@ class GeradorBoleto
         );
 
         $PDF->SetFont('Arial', '', 6);
-        $PDF->Cell(170, 3, utf8_decode('Instruções'), '', 0, 'L');
+        $PDF->Cell(170, 3, utf8_decode('Informações'), '', 0, 'L');
         $PDF->Cell(20, 3, utf8_decode('Autênticação Mecânica'), '', 1, 'R');
 
         $PDF->SetFont('Arial', '', 7);
 
-        foreach ($boleto->getInstrucoes() as $instrucao) {
-            $PDF->Cell(190, 5, utf8_decode($instrucao), '', 1, 'L');
+        foreach ($boleto->getDemonstrativos() as $demonstrativo) {
+            $PDF->Cell(190, 5, utf8_decode($demonstrativo), '', 1, 'L');
         }
 
         $PDF->Ln();
