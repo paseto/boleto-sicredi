@@ -162,8 +162,12 @@ class Sicredi extends BancoAbstract
     public function setNossoNumeroFormatado(Boleto $boleto)
     {
         return $this->setNossoNumero(
-            date('y') . '/' . $this->getByte() . $boleto->getNossoNumero() . '-'
-            . $boleto->getDigitoVerificadorNossoNumero()
+            \sprintf("%s/%s%s-%s",
+                $boleto->getDataDocumento()->format('y'),
+                $this->getByte(),
+                $boleto->getNossoNumero(),
+                $boleto->getDigitoVerificadorNossoNumero()
+            )
         );
     }
 }
