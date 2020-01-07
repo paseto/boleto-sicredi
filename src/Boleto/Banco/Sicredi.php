@@ -30,7 +30,7 @@ class Sicredi extends BancoAbstract
     {
         // |Agência | Posto | Cedente | Ano | Byte | Sequencial(Nosso número) |
         $nnum = $boleto->getCedente()->getAgencia() . $this->getPosto() .
-            $boleto->getCedente()->getCodigoCedente() . date('y') . $this->getByte() . $boleto->getNossoNumero();
+            $boleto->getCedente()->getCodigoCedente() . $boleto->getDataDocumento()->format('y') . $this->getByte() . $boleto->getNossoNumero();
 
         //dv do nosso número
         return $this->digitoVerificadorNossonumero($nnum);
@@ -43,7 +43,7 @@ class Sicredi extends BancoAbstract
    */
     public function getNossoNumeroSemDigitoVerificador(Boleto $boleto)
     {
-        return date('y') . $this->getByte() . $boleto->getNossoNumero();
+        return $boleto->getDataDocumento()->format('y') . $this->getByte() . $boleto->getNossoNumero();
     }
 
   /**
@@ -53,7 +53,7 @@ class Sicredi extends BancoAbstract
    */
     public function getNossoNumeroComDigitoVerificador(Boleto $boleto)
     {
-        return date('y') . $this->getByte() . $boleto->getNossoNumero();
+        return $boleto->getDataDocumento()->format('y') . $this->getByte() . $boleto->getNossoNumero();
     }
 
   /**
@@ -63,7 +63,7 @@ class Sicredi extends BancoAbstract
    */
     public function getCarteiraENossoNumeroComDigitoVerificador(Boleto $boleto)
     {
-        return date('y') . '/' . $this->getByte() . $boleto->getNossoNumero() . '-'
+        return $boleto->getDataDocumento()->format('y') . '/' . $this->getByte() . $boleto->getNossoNumero() . '-'
             . $this->getNossoNumeroComDigitoVerificador($boleto);
     }
 
@@ -162,8 +162,12 @@ class Sicredi extends BancoAbstract
     public function setNossoNumeroFormatado(Boleto $boleto)
     {
         return $this->setNossoNumero(
-            date('y') . '/' . $this->getByte() . $boleto->getNossoNumero() . '-'
-            . $boleto->getDigitoVerificadorNossoNumero()
+            \sprintf("%s/%s%s-%s",
+                $boleto->getDataDocumento()->format('y'),
+                $this->getByte(),
+                $boleto->getNossoNumero(),
+                $boleto->getDigitoVerificadorNossoNumero()
+            )
         );
     }
 }
