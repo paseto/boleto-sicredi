@@ -30,7 +30,8 @@ class Sicredi extends BancoAbstract
     {
         // |Agência | Posto | Cedente | Ano | Byte | Sequencial(Nosso número) |
         $nnum = $boleto->getCedente()->getAgencia() . $this->getPosto() .
-            $boleto->getCedente()->getCodigoCedente() . $boleto->getDataDocumento()->format('y') . $this->getByte() . $boleto->getNossoNumero();
+            $boleto->getCedente()->getCodigoCedente() . $boleto->getDataDocumento()->format('y')
+            . $this->getByte() . $boleto->getNossoNumero();
 
         //dv do nosso número
         return $this->digitoVerificadorNossonumero($nnum);
